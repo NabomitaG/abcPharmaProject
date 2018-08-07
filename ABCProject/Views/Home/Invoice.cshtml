@@ -1,0 +1,75 @@
+﻿<!------ Include the above in your HEAD tag ---------->
+<div class="modal-header">
+    <div class="invoice-title">
+        <h2>Invoice</h2><h3 class="pull-right">Order # {{purchaseId}}</h3>
+    </div>
+</div>
+<div class="container" ng-init="getInvoiceDetails()">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-8">
+                <hr>
+                <div class="row">
+                    <div class="col-xs-6">
+                        <address>
+                            <strong>Billed To:</strong><br>
+                            {{storeDetails.storeName}}<br>
+                            {{storeDetails.storeAddress}}<br>
+                            {{storeDetails.storePhoneNo}}<br>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><strong>Order summary </strong></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-condensed">
+                                <thead>
+                                    <tr>
+                                        <td><strong>Item</strong></td>
+                                        <td><strong>Unit Price</strong></td>
+                                        <td><strong>Quantity</strong></td>
+                                        <td><strong>Sub Total</strong></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- foreach ($order->lineItems as $line) or some such thing here -->
+                                    <tr ng-repeat="item in tests">
+                                        <td> {{item.medicineName}}</td>
+                                        <td> {{item.unitPrice}}</td>
+                                        <td> {{item.quantityToPurchase}}</td>
+                                        <td> {{item.subTotalPrice}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <div>
+                                                <div>{{totalAmount}} Total Amount </div>
+                                                <div>- {{discounts}} Discount</div>
+                                                <div>- {{storeDiscounts}} Store Discounts</div>
+                                                <div>+ {{taxes}} Taxes</div>
+                                                <div>{{finalAmount}} Final Amount</div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-default" type="button" ng-click="cancel()">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

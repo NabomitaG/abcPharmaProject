@@ -1,0 +1,46 @@
+﻿<div ng-init="init()">
+    </br>
+    <div class="col-sm-3 sidenav">
+        <div class="form-group row">
+            <div class="col-xs-10">
+                <label for="ex1">Store Name:</label>
+                <input type="text" class="form-control" id="ex1" name="strName" required ng-model="strName" />
+
+                <label for="ex2">Store Address:</label>
+                <textarea class="form-control" id="ex2" name="strAddress" required ng-model="strAddress"></textarea>
+
+                <label for="ex3">Phone Number:</label>
+                <input type="tel" class="form-control" id="ex3" name="strPhone" required ng-model="strPhone" />
+
+                </br>
+                <input type="button" class="btn btn-primary btn-md" ng-click="addStore()" value="Add Store" />
+            </div>
+        </div>
+    </div>
+    </br>
+    <div class="row content">
+        <div class="col-sm-8 sidenav hidden-xs">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Store Name</th>
+                            <th>Store Address</th>
+                            <th>Phone Number</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="store in stores">
+                            <td>
+                                {{store.storeName}}
+                            <td>
+                                {{store.storeAddress}}
+                            </td>
+                            <td>
+                                {{store.storePhoneNo}}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>

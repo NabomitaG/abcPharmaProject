@@ -1,0 +1,69 @@
+﻿<style>
+    .table-responsive {
+        max-height: 300px;
+    }
+</style>
+
+<div ng-init="medicineInit()">
+    </br>
+    <div class="col-sm-3 sidenav">
+        <div class="form-group row">
+            <div class="col-xs-10">
+                <label for="ex1">Medicine Name:</label>
+                <input type="text" class="form-control" id="ex1" name="medName" required ng-model="medName" />
+
+                <label for="ex2">Pkg Date:</label>
+                <input type="date" class="form-control" id="ex2" name="medPkgDate" required ng-model="medPkgDate" />
+
+                <label for="ex3">Expiry Date:</label>
+                <input type="date" class="form-control" id="ex3" name="medExpiryDate" required ng-model="medExpiryDate" />
+
+                <label for="ex3">Unit Price:</label>
+                <input type="number" class="form-control" id="ex4" name="medUnitPrice" required ng-model="medUnitPrice" />
+
+                <label for="ex3">Quantity Available:</label>
+                <input type="number" class="form-control" id="ex5" name="medQtyAvailable" required ng-model="medQtyAvailable" />
+
+                </br>
+                <input type="button" class="btn btn-primary btn-md" ng-click="addMedicine()" value="Add Medicine" />
+            </div>
+        </div>
+    </div>
+    <div class="row content">
+        @*<div class="input-group">
+                    <input type="text" name="searchMedName" ng-model="searchName" placeholder="Search Medicine">
+                    <input type="button" class="btn btn-primary" ng-click="getMedicinesByName()" value="Search" />
+                    <input type="button" class="btn btn-primary" ng-click="reset()" value="Reset" />
+                </div>
+            </div>*@
+        <div class="col-sm-8 sidenav hidden-xs">
+            <div class="input-group">
+                <input type="text" name="searchMedName" ng-model="searchName" placeholder="Search Medicine">
+                <input type="button" class="btn btn-primary" ng-click="getMedicinesByName()" value="Search" />
+                <input type="button" class="btn btn-primary" ng-click="reset()" value="Reset" />
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Medicine Name</th>
+                            <th>Pkg Date</th>
+                            <th>Expiry Date</th>
+                            <th>Unit Price</th>
+                            <th>Quantity Available</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="medicine in medicines">
+                            <td>{{medicine.medicineName}}</td>
+                            <td> {{medicine.pkgDate|date}}</td>
+                            <td>{{medicine.expiryDate|date}}</td>
+                            <td>{{medicine.unitPrice}}</td>
+                            <td>{{medicine.quantity}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>

@@ -1,0 +1,38 @@
+﻿</br>
+<div ng-init="purchaseInit()">
+    <div class="col-sm-3 sidenav">
+        <div class="form-group row">
+            <div class="col-xs-9">
+                <label for="ex1">Select Store</label>
+                <select class="form-control" ng-model="selectedStoreId" ng-change="storeSelectionChanged()">
+                    <option ng-repeat="store in stores" value="{{store.storeId }}">{{store.storeName}}</option>
+                </select>
+            </div>
+
+            <div class="col-xs-10">
+                <label for="ex1">Select Medicine</label>
+                <select class="form-control" ng-model="selectedMedicineId" ng-change="medicineSelectionChanged()" ng-disabled="isStoreSelected">
+                    <option ng-repeat="medicine in medicines" value="{{medicine.itemId }}">{{medicine.medicineName}}</option>
+                </select>
+            </div>
+            <div class="col-xs-10" ng-hide="isMedicineSelected">
+                <label for="ex1">Quantity</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" ng-model="quantityPurchase" name="search">
+                    <div class="input-group-btn">
+                        <input type="button" class="btn btn-default" ng-click="addMedicineToCart()" value="Add" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row content" ng-if="isMedicineAdded">
+        <div class="col-sm-8 sidenav hidden-xs">
+            <div class="form-group">
+                <div id="grid1" ui-grid="gridOptions" class="grid"></div>
+                <input type="button" class="btn btn-primary" ng-click="generateInvoice()" value="Generate Invoice" />
+            </div>
+        </div>
+    </div>
+</div>
+

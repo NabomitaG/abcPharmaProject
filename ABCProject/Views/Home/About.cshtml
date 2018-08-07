@@ -1,0 +1,54 @@
+﻿<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+
+    tr:nth-child(even) {
+        background-color: #dddddd;
+    }
+</style>
+<div ng-init="medicineInit()">
+    </br>
+    <div>
+        Medicine Name:<input type="text" name="medName" ng-model="strName" />
+        Pkg Date:<input type="date" name="medPkgDate" ng-model="strAddress" />
+        Expiry Date:<input type="date" name="medExpiryDate" ng-model="strPhone" />
+        Unit Price:<input type="text" name="medUnitPrice" ng-model="strPhone" />
+        Quantity Available:<input type="text" name="medQtyAvailable" ng-model="strPhone" />
+
+        <input type="button" ng-click="addMedicine()" value="Add Medicine" />
+    </div>
+    </br>
+    <div class="details">
+        <table>
+            <thead>
+                <tr>
+                    <th>Medicine Name</th>
+                    <th>Pkg Date</th>
+                    <th>Expiry Date</th>
+                    <th>Unit Price</th>
+                    <th>Quantity Available</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="medicine in medicines">
+                    <td>{{medicine.medicineName}}</td>
+                    <td> {{medicine.medicinePkgDate}}</td>
+                    <td>{{medicine.medicineExpiryDate}}</td>
+                    <td>{{medicine.medicineUnitPrice}}</td>
+                    <td>{{medicine.medicineQtyAvailable}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
