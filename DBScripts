@@ -1,0 +1,39 @@
+Script 1
+
+CREATE DATABASE [ABCPharma_DB];
+
+Script 2
+
+USE ABCPharma_DB
+GO
+
+CREATE TABLE [dbo].[Stores](  
+    [StoreId] [int] IDENTITY(1,1) NOT NULL,  
+    [StoreName] [varchar](100) DEFAULT '',  
+    [StoreAddress] [varchar](500) DEFAULT '',  
+    [StorePhoneNo] [int] NOT NULL
+PRIMARY KEY (StoreId)  
+    )  
+
+
+CREATE TABLE [dbo].[Medicines](
+	[MedicineId] [int] IDENTITY(1,1) NOT NULL,
+	[MedicineName] [varchar](100) NULL,
+	[PKGDate] [datetime] NULL,
+	[ExpiryDate] [datetime] NULL,
+	[UnitPrice] [int] NULL,
+	[QuantityAvailable] [int] NULL
+	PRIMARY KEY (MedicineId)  
+    )  
+
+CREATE TABLE [dbo].[Purchases](
+	[PurchaseId] [int] IDENTITY(1,1) NOT NULL,
+	[StoreId] [int] NOT NULL,
+	[PurchaseDetails] [varchar](max) NOT NULL,
+	[InvoiceDetails] [varchar](max) NOT NULL,
+	[PurchaseDate] [datetime] NULL
+		PRIMARY KEY (PurchaseId)  
+    )  
+
+
+
